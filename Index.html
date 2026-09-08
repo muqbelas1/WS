@@ -1,0 +1,651 @@
+<!-- Paste this entire block into a WordPress Custom HTML block. Styles and script are scoped under #amq-cv-root. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+#amq-cv-root{
+    --bg:#0a0f1a;
+    --panel:#101828;
+    --panel-2:#0d1420;
+    --border:#20293b;
+    --border-soft:#182234;
+    --text:#e8ecf3;
+    --muted:#8b96a8;
+    --muted-2:#5d6879;
+    --signal:#4ddcc4;
+    --signal-dim:#2a5f57;
+    --amber:#f0a857;
+    --radius:10px;
+  }
+  #amq-cv-root, #amq-cv-root *{box-sizing:border-box;}
+  #amq-cv-root{scroll-behavior:smooth;}
+  #amq-cv-root{
+    position:relative;
+    isolation:isolate;
+    overflow:hidden;
+    max-width:100%;
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:'IBM Plex Sans', sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  #amq-cv-root::before{
+    content:"";
+    position:absolute; inset:0;
+    background-image:
+      linear-gradient(var(--border-soft) 1px, transparent 1px),
+      linear-gradient(90deg, var(--border-soft) 1px, transparent 1px);
+    background-size:64px 64px;
+    opacity:.35;
+    pointer-events:none;
+    z-index:0;
+    mask-image: radial-gradient(ellipse 90% 60% at 50% 0%, black 40%, transparent 90%);
+  }
+  #amq-cv-root h1, #amq-cv-root h2, #amq-cv-root h3{font-family:'Space Grotesk', sans-serif; margin:0; letter-spacing:-0.01em;}
+  #amq-cv-root .mono{font-family:'IBM Plex Mono', monospace;}
+  #amq-cv-root a{color:inherit;}
+  #amq-cv-root img{max-width:100%;}
+  #amq-cv-root :focus-visible{outline:2px solid var(--signal); outline-offset:3px;}
+  #amq-cv-root .wrap{max-width:1120px; margin:0 auto; padding:0 clamp(20px, 4vw, 32px); position:relative; z-index:1;}
+  #amq-cv-root section{padding:clamp(52px, 9vw, 96px) 0;}
+  @media (max-width:480px){
+  #amq-cv-root section{padding:44px 0;}
+}
+  #amq-cv-root .nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(10,15,26,.82);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--border-soft);
+  }
+  #amq-cv-root .nav-inner{
+    max-width:1120px; margin:0 auto; padding:14px clamp(20px, 4vw, 32px);
+    display:flex; align-items:center; justify-content:space-between; gap:16px;
+  }
+  #amq-cv-root .brand{display:flex; align-items:center; gap:10px; font-family:'Space Grotesk'; font-weight:600; font-size:14.5px; white-space:nowrap;}
+  #amq-cv-root .brand .dot{width:8px; height:8px; border-radius:50%; background:var(--signal); box-shadow:0 0 0 3px rgba(77,220,196,.15); animation:pulse-dot 2.4s ease-in-out infinite; flex-shrink:0;}
+  #amq-cv-root .nav-links{display:flex; gap:clamp(12px,2.5vw,28px); font-size:13.5px; color:var(--muted); overflow-x:auto; scrollbar-width:none;}
+  #amq-cv-root .nav-links::-webkit-scrollbar{display:none;}
+  #amq-cv-root .nav-links a{text-decoration:none; transition:color .2s; white-space:nowrap;}
+  #amq-cv-root .nav-links a:hover{color:var(--text);}
+  @media (max-width:560px){
+  #amq-cv-root .nav-links{display:none;}
+}
+  #amq-cv-root .nav-toggle{
+    display:none; flex-direction:column; justify-content:center; align-items:center; gap:5px;
+    width:38px; height:38px; padding:0; margin:0; flex-shrink:0;
+    background:transparent; border:1px solid var(--border); border-radius:8px;
+    cursor:pointer;
+  }
+  #amq-cv-root .nav-toggle span{
+    display:block; width:16px; height:1.5px; background:var(--text);
+    transition:transform .25s ease, opacity .25s ease;
+  }
+  #amq-cv-root .nav-toggle[aria-expanded="true"] span:nth-child(1){ transform:translateY(6.5px) rotate(45deg); }
+  #amq-cv-root .nav-toggle[aria-expanded="true"] span:nth-child(2){ opacity:0; }
+  #amq-cv-root .nav-toggle[aria-expanded="true"] span:nth-child(3){ transform:translateY(-6.5px) rotate(-45deg); }
+  @media (max-width:560px){
+  #amq-cv-root .nav-toggle{display:flex;}
+}
+  #amq-cv-root .mobile-menu{
+    display:none;
+    max-height:0; overflow:hidden;
+    background:var(--panel-2);
+    border-bottom:1px solid var(--border-soft);
+    transition:max-height .3s ease;
+  }
+  #amq-cv-root .mobile-menu a{
+    display:block; padding:14px clamp(20px,4vw,32px);
+    font-size:15px; color:var(--text); text-decoration:none;
+    border-top:1px solid var(--border-soft);
+  }
+  #amq-cv-root .mobile-menu a:active, #amq-cv-root .mobile-menu a:hover{ color:var(--signal); }
+  @media (max-width:560px){
+  #amq-cv-root .mobile-menu{display:block;}
+  #amq-cv-root .mobile-menu.open{max-height:340px;}
+}
+  #amq-cv-root .hero{padding-top:clamp(32px,6vw,72px); padding-bottom:clamp(40px,6vw,72px);}
+  #amq-cv-root .hero-grid{
+    display:grid; grid-template-columns:1.05fr 0.95fr; gap:clamp(36px,5vw,56px); align-items:center;
+  }
+  @media (max-width:900px){
+  #amq-cv-root .hero-grid{grid-template-columns:1fr; gap:44px;}
+}
+  #amq-cv-root .status-pill{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:'IBM Plex Mono'; font-size:11.5px; letter-spacing:.02em; color:var(--signal);
+    background:rgba(77,220,196,.08); border:1px solid rgba(77,220,196,.25);
+    padding:6px 12px; border-radius:100px; margin-bottom:22px;
+    max-width:100%;
+  }
+  #amq-cv-root .status-pill .dot{width:6px; height:6px; border-radius:50%; background:var(--signal); animation:pulse-dot 2.4s ease-in-out infinite; flex-shrink:0;}
+  @media (max-width:400px){
+  #amq-cv-root .status-pill{font-size:10.5px; padding:6px 10px;}
+}
+  #amq-cv-root .hero h1{font-size:clamp(30px,8vw,56px); line-height:1.08; font-weight:700;}
+  #amq-cv-root .hero .role{font-size:clamp(15px,3.6vw,20px); color:var(--signal); font-weight:500; margin-top:12px; font-family:'Space Grotesk';}
+  #amq-cv-root .hero .loc{color:var(--muted); font-size:13.5px; margin-top:8px; font-family:'IBM Plex Mono';}
+  #amq-cv-root .hero p.lead{color:var(--muted); font-size:15.5px; max-width:52ch; margin-top:20px;}
+  #amq-cv-root .sce{margin-top:28px; font-size:11.5px; color:var(--muted-2); font-family:'IBM Plex Mono'; line-height:1.5;}
+  #amq-cv-root .sce b{color:var(--muted);}
+  #amq-cv-root .diagram-wrap{
+    position:relative; aspect-ratio:1/1; width:100%; max-width:440px; margin:0 auto;
+  }
+  @media (max-width:900px){
+  #amq-cv-root .diagram-wrap{max-width:340px;}
+}
+  @media (max-width:400px){
+  #amq-cv-root .diagram-wrap{max-width:280px;}
+}
+  #amq-cv-root .diagram-wrap svg{width:100%; height:100%; overflow:visible; display:block;}
+  #amq-cv-root .net-line{
+    stroke:var(--border); stroke-width:1.5; fill:none;
+  }
+  #amq-cv-root .net-line-flow{
+    stroke:var(--signal); stroke-width:1.5; fill:none;
+    stroke-dasharray:6 10;
+    animation:flow 3.2s linear infinite;
+    opacity:.85;
+  }
+  @keyframes flow{ to{ stroke-dashoffset:-64; } }
+  #amq-cv-root .node-center{fill:var(--panel); stroke:var(--signal); stroke-width:1.5;}
+  #amq-cv-root .node{fill:var(--panel); stroke:var(--border); stroke-width:1.3; transition:stroke .3s;}
+  #amq-cv-root .node-group{cursor:default;}
+  #amq-cv-root .node-group:hover .node{stroke:var(--signal);}
+  #amq-cv-root .node-label{font-family:'IBM Plex Mono'; font-size:11px; fill:var(--muted); letter-spacing:.02em;}
+  #amq-cv-root .node-label-center{font-family:'IBM Plex Mono'; font-size:13px; fill:var(--text); font-weight:600;}
+  #amq-cv-root .pulse-ring{
+    fill:none; stroke:var(--signal); stroke-width:1.2; opacity:0;
+    animation:ring 3s ease-out infinite;
+  }
+  @keyframes ring{
+    0%{ opacity:.5; r:24; }
+    100%{ opacity:0; r:46; }
+  }
+  @keyframes pulse-dot{
+    0%,100%{ opacity:1; } 50%{ opacity:.35; }
+  }
+  #amq-cv-root .uptime-readout{
+    text-align:center; margin-top:clamp(4px,1.5vw,8px);
+    font-family:'IBM Plex Mono';
+  }
+  #amq-cv-root .uptime-readout .num{font-size:clamp(26px,5vw,34px); font-weight:600; color:var(--signal); letter-spacing:-.01em;}
+  #amq-cv-root .uptime-readout .label{font-size:11px; color:var(--muted-2); text-transform:uppercase; letter-spacing:.08em; margin-top:2px;}
+  #amq-cv-root .section-head{margin-bottom:44px;}
+  #amq-cv-root .eyebrow{
+    font-family:'IBM Plex Mono'; font-size:12px; color:var(--signal);
+    letter-spacing:.08em; text-transform:uppercase; display:flex; align-items:center; gap:10px;
+  }
+  #amq-cv-root .eyebrow::before{content:""; width:20px; height:1px; background:var(--signal);}
+  #amq-cv-root .section-head h2{font-size:clamp(24px,3vw,32px); margin-top:12px;}
+  #amq-cv-root .about-grid{display:grid; grid-template-columns:1.3fr 1fr; gap:clamp(28px,5vw,56px);}
+  @media (max-width:900px){
+  #amq-cv-root .about-grid{grid-template-columns:1fr;}
+}
+  #amq-cv-root .about-grid p{color:var(--muted); font-size:15.5px;}
+  #amq-cv-root .stat-grid{display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--border-soft); border:1px solid var(--border-soft); border-radius:var(--radius); overflow:hidden;}
+  #amq-cv-root .stat{background:var(--panel); padding:20px clamp(14px,3vw,20px);}
+  #amq-cv-root .stat .n{font-family:'IBM Plex Mono'; font-size:clamp(21px,4vw,26px); font-weight:600; color:var(--signal);}
+  #amq-cv-root .stat .l{font-size:12.5px; color:var(--muted); margin-top:4px;}
+  #amq-cv-root .skill-cats{display:grid; grid-template-columns:repeat(auto-fit, minmax(260px,1fr)); gap:20px;}
+  #amq-cv-root .skill-cat{
+    background:var(--panel); border:1px solid var(--border-soft); border-radius:var(--radius);
+    padding:22px clamp(18px,4vw,24px) 18px;
+  }
+  #amq-cv-root .skill-cat h3{font-size:14px; font-family:'IBM Plex Mono'; color:var(--muted); text-transform:uppercase; letter-spacing:.05em; font-weight:500; margin-bottom:16px;}
+  #amq-cv-root .chip-row{display:flex; flex-wrap:wrap; gap:8px;}
+  #amq-cv-root .chip{
+    font-size:12.5px; padding:6px 12px; border-radius:100px;
+    background:var(--panel-2); border:1px solid var(--border); color:var(--text);
+  }
+  #amq-cv-root .project-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:20px;}
+  #amq-cv-root .project-card{
+    background:var(--panel); border:1px solid var(--border-soft); border-radius:var(--radius);
+    padding:clamp(20px,4vw,28px); position:relative;
+  }
+  #amq-cv-root .project-card .tag{
+    display:inline-block; font-family:'IBM Plex Mono'; font-size:11px; color:var(--amber);
+    background:rgba(240,168,87,.08); border:1px solid rgba(240,168,87,.25);
+    padding:4px 10px; border-radius:100px; margin-bottom:14px;
+  }
+  #amq-cv-root .project-card h3{font-size:18px; margin-bottom:12px;}
+  #amq-cv-root .project-card ul{margin:0; padding-left:18px; color:var(--muted); font-size:14.5px;}
+  #amq-cv-root .project-card li{margin-bottom:8px;}
+  #amq-cv-root .timeline{position:relative; padding-left:24px;}
+  #amq-cv-root .timeline::before{
+    content:""; position:absolute; left:5px; top:6px; bottom:6px; width:1.5px;
+    background:linear-gradient(var(--signal), var(--border-soft) 85%);
+  }
+  #amq-cv-root .t-item{position:relative; padding-bottom:clamp(32px,5vw,44px);}
+  #amq-cv-root .t-item:last-child{padding-bottom:0;}
+  #amq-cv-root .t-dot{
+    position:absolute; left:-24px; top:4px; width:11px; height:11px; border-radius:50%;
+    background:var(--bg); border:2px solid var(--border); transition:border-color .4s, background .4s;
+  }
+  @media (min-width:560px){
+  #amq-cv-root .timeline{padding-left:34px;}
+  #amq-cv-root .t-dot{left:-34px;}
+}
+  #amq-cv-root .t-item.in-view .t-dot{border-color:var(--signal); background:var(--signal);}
+  #amq-cv-root .t-item{opacity:0; transform:translateY(14px); transition:opacity .6s ease, transform .6s ease;}
+  #amq-cv-root .t-item.in-view{opacity:1; transform:translateY(0);}
+  #amq-cv-root .t-years{font-family:'IBM Plex Mono'; font-size:12px; color:var(--signal); letter-spacing:.03em;}
+  #amq-cv-root .t-title{font-size:18px; margin-top:6px; font-family:'Space Grotesk'; font-weight:600;}
+  #amq-cv-root .t-org{color:var(--muted); font-size:13.5px; margin-top:2px;}
+  #amq-cv-root .t-item ul{margin:14px 0 0; padding-left:18px; color:var(--muted); font-size:14.5px;}
+  #amq-cv-root .t-item li{margin-bottom:7px;}
+  #amq-cv-root .tri-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:24px;}
+  #amq-cv-root .tri-card h3{font-size:13px; font-family:'IBM Plex Mono'; color:var(--muted); text-transform:uppercase; letter-spacing:.05em; font-weight:500; margin-bottom:16px;}
+  #amq-cv-root .tri-card .entry{margin-bottom:14px;}
+  #amq-cv-root .tri-card .entry:last-child{margin-bottom:0;}
+  #amq-cv-root .tri-card .entry .t{font-size:14.5px; font-weight:500;}
+  #amq-cv-root .tri-card .entry .s{font-size:13px; color:var(--muted); margin-top:2px;}
+  #amq-cv-root .tri-card .entry .y{font-family:'IBM Plex Mono'; font-size:11.5px; color:var(--signal); margin-top:2px;}
+  #amq-cv-root footer{
+    border-top:1px solid var(--border-soft);
+    padding:64px 0 40px;
+  }
+  #amq-cv-root .footer-tagline{font-size:clamp(20px,3.5vw,24px); max-width:36ch; font-weight:600;}
+  #amq-cv-root .copyright{margin-top:40px; font-size:12px; color:var(--muted-2); font-family:'IBM Plex Mono'; display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px;}
+  @media (prefers-reduced-motion: reduce){
+  #amq-cv-root, #amq-cv-root *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important;}
+}
+</style>
+
+<div id="amq-cv-root">
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="brand"><span class="dot"></span>A. AL-MUQBEL</div>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#experience">Experience</a>
+    <a href="#education">Education</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="status-pill"><span class="dot"></span>ALL SYSTEMS OPERATIONAL — 99.9% UPTIME</div>
+      <h1>Abdullah Saleh<br>Al‑Muqbel</h1>
+      <div class="role">Senior IT Operations &amp; Planning Specialist</div>
+      <div class="loc">Jubail, Eastern Province, Saudi Arabia</div>
+      <p class="lead">12+ years engineering and operating enterprise infrastructure at MARAFIQ (MASA) — network availability, SAP ERP Hana procurement, and custom-built web &amp; e‑Learning platforms.</p>
+      <div class="sce">SCE Membership No. <b>886911</b> — Saudi Council of Engineers, Accredited IT Specialist</div>
+    </div>
+
+    <div>
+      <div class="diagram-wrap" aria-hidden="true">
+        <svg viewBox="0 0 400 400">
+          <g class="net-line">
+            <line x1="200" y1="200" x2="200" y2="70"></line>
+            <line x1="200" y1="200" x2="330" y2="140"></line>
+            <line x1="200" y1="200" x2="335" y2="270"></line>
+            <line x1="200" y1="200" x2="200" y2="330"></line>
+            <line x1="200" y1="200" x2="65" y2="270"></line>
+            <line x1="200" y1="200" x2="70" y2="140"></line>
+          </g>
+          <g class="net-line-flow" style="animation-delay:0s">
+            <line x1="200" y1="200" x2="200" y2="70"></line>
+          </g>
+          <g class="net-line-flow" style="animation-delay:.4s">
+            <line x1="200" y1="200" x2="330" y2="140"></line>
+          </g>
+          <g class="net-line-flow" style="animation-delay:.8s">
+            <line x1="200" y1="200" x2="335" y2="270"></line>
+          </g>
+          <g class="net-line-flow" style="animation-delay:1.2s">
+            <line x1="200" y1="200" x2="200" y2="330"></line>
+          </g>
+          <g class="net-line-flow" style="animation-delay:1.6s">
+            <line x1="200" y1="200" x2="65" y2="270"></line>
+          </g>
+          <g class="net-line-flow" style="animation-delay:2s">
+            <line x1="200" y1="200" x2="70" y2="140"></line>
+          </g>
+          <circle class="pulse-ring" cx="200" cy="200" r="24" style="animation-delay:0s"></circle>
+          <circle class="pulse-ring" cx="200" cy="200" r="24" style="animation-delay:1.5s"></circle>
+          <g class="node-group">
+            <circle class="node" cx="200" cy="70" r="30"></circle>
+            <text class="node-label" x="200" y="66" text-anchor="middle">SAP ERP</text>
+            <text class="node-label" x="200" y="78" text-anchor="middle">HANA</text>
+          </g>
+          <g class="node-group">
+            <circle class="node" cx="330" cy="140" r="30"></circle>
+            <text class="node-label" x="330" y="136" text-anchor="middle">ACTIVE</text>
+            <text class="node-label" x="330" y="148" text-anchor="middle">DIRECTORY</text>
+          </g>
+          <g class="node-group">
+            <circle class="node" cx="335" cy="270" r="30"></circle>
+            <text class="node-label" x="335" y="266" text-anchor="middle">CUCM</text>
+            <text class="node-label" x="335" y="278" text-anchor="middle">VOIP</text>
+          </g>
+          <g class="node-group">
+            <circle class="node" cx="200" cy="330" r="30"></circle>
+            <text class="node-label" x="200" y="326" text-anchor="middle">LMS</text>
+            <text class="node-label" x="200" y="338" text-anchor="middle">PLATFORM</text>
+          </g>
+          <g class="node-group">
+            <circle class="node" cx="65" cy="270" r="30"></circle>
+            <text class="node-label" x="65" y="266" text-anchor="middle">DNS /</text>
+            <text class="node-label" x="65" y="278" text-anchor="middle">SSL</text>
+          </g>
+          <g class="node-group">
+            <circle class="node" cx="70" cy="140" r="30"></circle>
+            <text class="node-label" x="70" y="136" text-anchor="middle">IP‑VPN /</text>
+            <text class="node-label" x="70" y="148" text-anchor="middle">DAPN</text>
+          </g>
+          <circle class="node-center" cx="200" cy="200" r="42"></circle>
+          <text class="node-label-center" x="200" y="196" text-anchor="middle">IT OPS</text>
+          <text class="node-label-center" x="200" y="210" text-anchor="middle" style="font-size:9px; fill:var(--muted);">JUBAIL</text>
+        </svg>
+      </div>
+      <div class="uptime-readout">
+        <div class="num" id="uptimeCounter">99.9%</div>
+        <div class="label">Corporate network availability</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="wrap about-grid">
+    <div>
+      <div class="section-head">
+        <div class="eyebrow">Profile</div>
+        <h2>Versatile, metrics‑driven infrastructure specialist</h2>
+      </div>
+      <p>Over 12 years of progressive enterprise experience in IT Service Operations, Systems Administration, Infrastructure Support, and IT Asset Management at MARAFIQ (MASA). Proven expertise in optimizing corporate network infrastructures, managing SAP ERP Hana procurement pipelines, and engineering custom web platforms and e‑Learning systems.</p>
+      <p>Demonstrated success in maintaining 99.9% network availability, driving digital transformation, and boosting end‑user satisfaction across a multi‑site industrial environment.</p>
+    </div>
+    <div class="stat-grid">
+      <div class="stat"><div class="n">12+</div><div class="l">Years in enterprise IT</div></div>
+      <div class="stat"><div class="n">99.9%</div><div class="l">Network availability</div></div>
+      <div class="stat"><div class="n">500+</div><div class="l">Users administered</div></div>
+      <div class="stat"><div class="n">35%</div><div class="l">Faster onboarding via LMS</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Capabilities</div>
+      <h2>Core competencies &amp; technical skills</h2>
+    </div>
+    <div class="skill-cats">
+      <div class="skill-cat">
+        <h3>Systems &amp; Administration</h3>
+        <div class="chip-row">
+          <span class="chip">Active Directory</span>
+          <span class="chip">Exchange Admin Center</span>
+          <span class="chip">SCCM Deployment</span>
+          <span class="chip">DHCP &amp; DNS</span>
+          <span class="chip">Backup &amp; Disaster Recovery</span>
+        </div>
+      </div>
+      <div class="skill-cat">
+        <h3>IT Service &amp; ERP</h3>
+        <div class="chip-row">
+          <span class="chip">SAP ERP Hana (PR / SES)</span>
+          <span class="chip">SCSM &amp; Remedy Ticketing</span>
+          <span class="chip">SLA Compliance</span>
+          <span class="chip">IT Asset Management</span>
+        </div>
+      </div>
+      <div class="skill-cat">
+        <h3>Web &amp; Digital Solutions</h3>
+        <div class="chip-row">
+          <span class="chip">WordPress Architecture</span>
+          <span class="chip">Custom LMS Engineering</span>
+          <span class="chip">cPanel &amp; SSL Provisioning</span>
+          <span class="chip">Mobile Device Management</span>
+        </div>
+      </div>
+      <div class="skill-cat">
+        <h3>Networking &amp; Telecom</h3>
+        <div class="chip-row">
+          <span class="chip">Cisco CUCM (VoIP)</span>
+          <span class="chip">IP‑VPN</span>
+          <span class="chip">DAPN</span>
+          <span class="chip">MRS</span>
+          <span class="chip">Enterprise Network Monitoring</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Selected Work</div>
+      <h2>Key technical projects</h2>
+    </div>
+    <div class="project-grid">
+      <div class="project-card">
+        <span class="tag">2024</span>
+        <h3>Enterprise Learning Management System</h3>
+        <ul>
+          <li>Engineered and launched an in‑house enterprise LMS integrated with Active Directory SSO, accelerating employee onboarding speed by 35%.</li>
+          <li>Implemented real‑time performance analytics and automated tracking pipelines, cutting corporate staff development overhead by 20%.</li>
+        </ul>
+      </div>
+      <div class="project-card">
+        <span class="tag">2023</span>
+        <h3>Corporate Web Environment Engineering &amp; Security</h3>
+        <ul>
+          <li>Architected and secured the official corporate web environment using a hardened WordPress core with custom cPanel and SSL integrations.</li>
+          <li>Configured advanced DNS routing and domain security protocols, achieving 99.9% web application availability and zero security breaches.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Career Path</div>
+      <h2>Professional experience</h2>
+    </div>
+    <div class="timeline" id="timeline">
+
+      <div class="t-item">
+        <div class="t-dot"></div>
+        <div class="t-years">2020 — PRESENT</div>
+        <div class="t-title">Senior IT Operations &amp; Planning Specialist <span style="color:var(--muted); font-weight:400; font-size:13px;">(Technician I, IT)</span></div>
+        <div class="t-org">MARAFIQ (MASA) Company · Jubail, Saudi Arabia</div>
+        <ul>
+          <li>Lead senior IT operational service planning, managing network availability, corporate DNS/domains, and SAP IT procurement.</li>
+          <li>Strategically plan and budget corporate IT services across IP‑VPN, DAPN, MRS, and mobile deployments, maintaining 99.9% uptime.</li>
+          <li>Process Purchase Requests (PR) and Service Entry Sheets (SES) in SAP ERP Hana, expediting deliverable verification and reducing cycle delays by 15%.</li>
+          <li>Manage corporate web platforms, SSL security certificates, and internal LMS solutions to drive enterprise digital transformation.</li>
+        </ul>
+      </div>
+
+      <div class="t-item">
+        <div class="t-dot"></div>
+        <div class="t-years">2018 — 2020</div>
+        <div class="t-title">Systems &amp; Communications Systems Administrator <span style="color:var(--muted); font-weight:400; font-size:13px;">(Technician II, IT)</span></div>
+        <div class="t-org">MARAFIQ (MASA) Company · Jubail, Saudi Arabia</div>
+        <ul>
+          <li>Managed core IT infrastructure, central user identity systems, backup protocols, and enterprise IP telephony.</li>
+          <li>Administered Exchange Admin Center and Active Directory permissions for 500+ enterprise users, cutting provisioning lead times by 25%.</li>
+          <li>Supervised backup server infrastructure and physical tape replacement routines, achieving 100% data recovery readiness and audit compliance.</li>
+          <li>Configured Cisco Unified Communications Manager (CUCM) IP telephony and dial plans, maintaining 98%+ voice network reliability and lowering escalation resolution time by 30%.</li>
+        </ul>
+      </div>
+
+      <div class="t-item">
+        <div class="t-dot"></div>
+        <div class="t-years">2016 — 2018</div>
+        <div class="t-title">Field Technical Support Specialist <span style="color:var(--muted); font-weight:400; font-size:13px;">(Technician II, IT)</span></div>
+        <div class="t-org">MARAFIQ (MASA) Company · Jubail, Saudi Arabia</div>
+        <ul>
+          <li>Directed multi‑site field operations, desk‑side support, hardware/software troubleshooting, and network escalations.</li>
+          <li>Provided responsive desk‑side field support across 7+ corporate facilities for 100+ end‑users, achieving a 95%+ CSAT score.</li>
+          <li>Partnered with Core Network &amp; Systems teams to resolve structural infrastructure bottlenecks, reducing average ticket resolution time by 25%.</li>
+        </ul>
+      </div>
+
+      <div class="t-item">
+        <div class="t-dot"></div>
+        <div class="t-years">2015 — 2016</div>
+        <div class="t-title">Service Desk Operations Specialist <span style="color:var(--muted); font-weight:400; font-size:13px;">(Technician II, IT)</span></div>
+        <div class="t-org">MARAFIQ (MASA) Company · Jubail, Saudi Arabia</div>
+        <ul>
+          <li>Drove remote incident resolution, data center health monitoring, and enterprise knowledge base creation.</li>
+          <li>Resolved high‑volume technical incidents remotely via SCCM and SCSM, maintaining 95%+ SLA compliance across all priority levels.</li>
+          <li>Authored 25+ standardized knowledge base articles, driving First‑Contact Resolution (FCR) rates up by 15%.</li>
+        </ul>
+      </div>
+
+      <div class="t-item">
+        <div class="t-dot"></div>
+        <div class="t-years">2013 — 2015</div>
+        <div class="t-title">IT Asset &amp; Inventory Management Specialist <span style="color:var(--muted); font-weight:400; font-size:13px;">(Technician III, IT)</span></div>
+        <div class="t-org">MARAFIQ (MASA) Company · Jubail, Saudi Arabia</div>
+        <ul>
+          <li>Managed hardware lifecycle assets, vendor liaisons, and specialized departmental technical support.</li>
+          <li>Managed corporate IT hardware/software asset inventories with 98%+ tracking accuracy across hardware refresh cycles.</li>
+          <li>Provided direct desk‑side support and workstation provisioning for the Finance department, reducing user onboarding downtime by 20%.</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Background</div>
+      <h2>Education, certifications &amp; languages</h2>
+    </div>
+    <div class="tri-grid">
+      <div class="tri-card">
+        <h3>Education</h3>
+        <div class="entry">
+          <div class="t">Bachelor's Degree, Network &amp; Information Security</div>
+          <div class="s">Arab Open University — Dammam, Saudi Arabia</div>
+          <div class="y">Graduated 2025</div>
+        </div>
+        <div class="entry">
+          <div class="t">Associate of Science, IT System Support</div>
+          <div class="s">Jubail Industrial College — Jubail, Saudi Arabia</div>
+          <div class="y">Graduated 2013</div>
+        </div>
+      </div>
+      <div class="tri-card">
+        <h3>Certifications</h3>
+        <div class="entry">
+          <div class="t">Saudi Council of Engineers (SCE)</div>
+          <div class="s">Accredited IT Specialist · No. 886911 · Fundamental Controls for Cybersecurity</div>
+        </div>
+        <div class="entry">
+          <div class="t">Cisco Networking Academy</div>
+          <div class="s">Enterprise Networking &amp; Security · Switching, Routing &amp; Wireless · Intro to Networks</div>
+        </div>
+        <div class="entry">
+          <div class="t">Microsoft Professional Training</div>
+          <div class="s">Analyzing Data with Power BI</div>
+        </div>
+        <div class="entry">
+          <div class="t">Industrial Automation</div>
+          <div class="s">PLCs &amp; SCADA Systems for Industry</div>
+        </div>
+      </div>
+      <div class="tri-card">
+        <h3>Languages</h3>
+        <div class="entry">
+          <div class="t">Arabic</div>
+          <div class="s">Native proficiency</div>
+        </div>
+        <div class="entry">
+          <div class="t">English</div>
+          <div class="s">Full professional proficiency / Fluent</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <h2 class="footer-tagline">Infrastructure, ERP procurement, and enterprise digital platforms.</h2>
+    <div class="copyright">
+      <span>© 2026 Abdullah Saleh Al‑Muqbel</span>
+      <span>SCE Membership No. 886911</span>
+    </div>
+  </div>
+</footer>
+</div>
+
+<script>
+(function(){
+  var root = document.getElementById('amq-cv-root');
+  if (!root) return;
+
+  root.querySelectorAll('a[href^="#"]').forEach(function(link){
+    link.addEventListener('click', function(e){
+      var id = link.getAttribute('href').slice(1);
+      var target = document.getElementById(id);
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  var navToggle = root.querySelector('#navToggle');
+  var mobileMenu = root.querySelector('#mobileMenu');
+  if (navToggle && mobileMenu) {
+    navToggle.addEventListener('click', function(){
+      var isOpen = mobileMenu.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      navToggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+    });
+    mobileMenu.querySelectorAll('a').forEach(function(link){
+      link.addEventListener('click', function(){
+        mobileMenu.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+        navToggle.setAttribute('aria-label', 'Open menu');
+      });
+    });
+  }
+
+  var items = root.querySelectorAll('.t-item');
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting) e.target.classList.add('in-view');
+    });
+  }, { threshold: 0.25, rootMargin: '0px 0px -60px 0px' });
+  items.forEach(function(i){ io.observe(i); });
+
+  var counter = root.querySelector('#uptimeCounter');
+  var values = ['99.9%','99.8%','99.9%','99.9%','99.7%','99.9%'];
+  var vi = 0;
+  if (counter && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    setInterval(function(){
+      vi = (vi + 1) % values.length;
+      counter.textContent = values[vi];
+    }, 2600);
+  }
+})();
+</script>
